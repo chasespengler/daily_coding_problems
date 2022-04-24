@@ -16,5 +16,19 @@ def addy_matchy_1(k, nums):
 
 
 k = 17
-nums = [15, 3, 7]
+nums = [10, 15, 3, 7]
 print(addy_matchy_1(k, nums))
+
+#Second version, use a dictionary as a hashmap to check instead to take advantage of space time
+def addy_matchy_2(k, nums):
+    comp = {}
+    for i in range(len(nums)):
+        num = nums[i]
+        if k - num in comp:
+            return True
+        else:
+            comp[num] = i
+
+    return False
+
+print(addy_matchy_2(k, nums))
