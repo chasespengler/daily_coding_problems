@@ -11,16 +11,19 @@ You can modify the input array in-place.
 def lowest_int(arr):
     arr.sort()
     print(arr)
+    if arr[0] > 1 or arr[-1] <= 0:
+        return 1
     for i in range(1, len(arr)):
         num1 = arr[i - 1]
         num2 = arr[i]
-        if num2 > 0 and num1 > 0 and num2 - num1 > 1:
+        if num2 > 0 and num1 >= 0 and num2 - num1 > 1:
             return num1 + 1
-
     return num2 + 1
 
 arr = [3, 4, -1, 1]
 arr2 = [1, 2, 0]
+arr3 = [-1000, -100, -10, -87, -69, -400]
 print(lowest_int(arr))
 print(lowest_int(arr2))
+print(lowest_int(arr3))
 

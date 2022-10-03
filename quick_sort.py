@@ -2,8 +2,7 @@ myarr = [1, 5, 0, 7, 11, 26, 13, 12, 22, 3]
 from random import randint
 
 def quick(arr):
-    partind = randint(0,len(arr)-1)
-    part = arr.pop(partind)
+    part = arr.pop(-1)
     left = []
     right = []
 
@@ -13,11 +12,11 @@ def quick(arr):
         else:
             right.append(x)
 
-    myarr[len(left)] = part
-    if left:
+    myarr[len(left)-1] = part
+    while left:
         quick(left)
-    if right:
-        quick(right)
+    #if right:
+        #quick(right)
 
 quick(myarr)
 
